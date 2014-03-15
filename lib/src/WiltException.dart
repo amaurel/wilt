@@ -13,7 +13,10 @@ part of wilt;
 class WiltException implements Exception {
 
   String _message = 'No Message Supplied';
-  WiltException([this._message]);
+  jsonobject.JsonObject _json;
+  WiltException([this._message,this._json]);
+  
+  jsonobject.JsonObject get json => _json;
 
-  String toString() => "WiltException: message = ${_message}";
+  String toString() => "WiltException: message = ${_message}, json = $_json";
 }

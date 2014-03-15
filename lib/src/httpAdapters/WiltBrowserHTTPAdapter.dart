@@ -157,7 +157,8 @@ class WiltBrowserHTTPAdapter implements WiltHTTPAdapter {
       /**
        * Complete the reequest
        */
-      if (!completer.isCompleted) completer.complete(jsonResponse);
+      //if (!completer.isCompleted) completer.complete(jsonResponse);
+      completer.completeError(new WiltException("",jsonResponse));
 
     }
 
