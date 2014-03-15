@@ -172,8 +172,8 @@ class WiltBrowserHTTPAdapter implements WiltHTTPAdapter {
      */
     html.HttpRequest.request(url, method: httpMethod, withCredentials: false,
         responseType: null, requestHeaders: headers, sendData: data)
-        ..then(onSuccess)
-        ..catchError(onError);
+        ..then(onSuccess,onError:onError);
+        //..catchError(onError); make test case fail
 
     return completer.future;
 

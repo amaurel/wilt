@@ -8,12 +8,12 @@
 library wilt_test_browser;
 
 import 'dart:html';
-import '../lib/wilt.dart';
-import '../lib/wilt_browser_client.dart';
+import 'package:wilt/wilt.dart';
+import 'package:wilt/wilt_browser_client.dart';
 import 'package:json_object/json_object.dart' as jsonobject;
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_config.dart';
-import 'wilt_test_config.dart';
+import 'wilt_test_private_config.dart';
 
 main() {
 
@@ -687,7 +687,7 @@ main() {
 
       localWilting.login('freddy', 'freddypass');
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_DATABASE);
         try {
@@ -712,7 +712,7 @@ main() {
     /* Create the test database */
     test("Create Test Database", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_DATABASE);
         try {
@@ -745,7 +745,7 @@ main() {
     /* Create a database then delete it */
     test("Delete Database", () {
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.DELETE_DATABASE);
         try {
@@ -765,7 +765,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_DATABASE);
         try {
@@ -801,7 +801,7 @@ main() {
 
     test("HEAD null URL", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.HEAD);
         try {
@@ -831,7 +831,7 @@ main() {
 
     test("Create document(POST) and check", () {
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.GET_DOCUMENT);
         try {
@@ -860,7 +860,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.POST_DOCUMENT);
         try {
@@ -904,7 +904,7 @@ main() {
 
     test("Create document(PUT) and check", () {
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.GET_DOCUMENT);
         try {
@@ -933,7 +933,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.PUT_DOCUMENT);
         try {
@@ -975,7 +975,7 @@ main() {
 
     test("Update document(PUT) and check", () {
 
-      var checkUpdater = expectAsync1((res) {
+      var checkUpdater = expectAsync((res) {
 
         expect(res.method, Wilt.PUT_DOCUMENT);
         try {
@@ -1002,7 +1002,7 @@ main() {
 
       });
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         try {
           expect(res.error, isFalse);
@@ -1042,7 +1042,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.PUT_DOCUMENT);
         try {
@@ -1084,7 +1084,7 @@ main() {
 
     test("Delete document and check ", () {
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.DELETE_DOCUMENT);
         try {
@@ -1108,7 +1108,7 @@ main() {
         expect(putDocId, equals(putId3));
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.PUT_DOCUMENT);
         try {
@@ -1151,7 +1151,7 @@ main() {
 
     test("Copy document", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.COPY_DOCUMENT);
         try {
@@ -1188,7 +1188,7 @@ main() {
     /* Raw HTTP Request */
     test("Raw HTTP Request", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         try {
           expect(res.error, isFalse);
@@ -1246,7 +1246,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1284,7 +1284,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1329,7 +1329,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1372,7 +1372,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1415,7 +1415,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1462,7 +1462,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDOCS);
         try {
@@ -1509,7 +1509,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.BULK);
         try {
@@ -1564,7 +1564,7 @@ main() {
       WiltBrowserClient wilting = new WiltBrowserClient(hostName, port, scheme);
 
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.BULK_STRING);
         try {
@@ -1634,7 +1634,7 @@ main() {
 
     test("Get Session Information", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_SESSION);
         try {
@@ -1665,7 +1665,7 @@ main() {
 
     test("Get Stats Information", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_STATS);
         try {
@@ -1696,7 +1696,7 @@ main() {
 
     test("Get Database Information - default", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.DATABASE_INFO);
         try {
@@ -1728,7 +1728,7 @@ main() {
 
     test("Get Database Information - specified", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.DATABASE_INFO);
         try {
@@ -1759,7 +1759,7 @@ main() {
 
     test("Get All DB's", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ALLDBS);
         try {
@@ -1790,7 +1790,7 @@ main() {
 
     test("Generate Ids", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GENERATE_IDS);
         try {
@@ -1847,7 +1847,7 @@ main() {
 
     test("Create document(PUT) for attachment tests and check", () {
 
-      var checkCompleter = expectAsync1((res) {
+      var checkCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.GET_DOCUMENT);
         try {
@@ -1878,7 +1878,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.PUT_DOCUMENT);
         try {
@@ -1920,7 +1920,7 @@ main() {
 
     test("Create Attachment", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_ATTACHMENT);
         try {
@@ -1954,7 +1954,7 @@ main() {
 
     test("Get Create Attachment", () {
 
-      var revisionCompleter = expectAsync1((res) {
+      var revisionCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.GET_DOCUMENT);
         try {
@@ -1989,7 +1989,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ATTACHMENT);
         try {
@@ -2032,7 +2032,7 @@ main() {
 
     test("Update Attachment", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.UPDATE_ATTACHMENT);
         try {
@@ -2066,7 +2066,7 @@ main() {
 
     test("Get Update Attachment", () {
 
-      var revisionCompleter = expectAsync1((res) {
+      var revisionCompleter = expectAsync((res) {
 
         expect(res.method, Wilt.GET_DOCUMENT);
         try {
@@ -2096,7 +2096,7 @@ main() {
 
       });
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.GET_ATTACHMENT);
         try {
@@ -2138,7 +2138,7 @@ main() {
 
     test("Create Attachment With New Document", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_ATTACHMENT);
         try {
@@ -2171,7 +2171,7 @@ main() {
 
     test("Create Attachment Invalid Revision", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.CREATE_ATTACHMENT);
         expect(res.error, isTrue);
@@ -2190,7 +2190,7 @@ main() {
 
     test("Delete Attachment", () {
 
-      var completer = expectAsync1((res) {
+      var completer = expectAsync((res) {
 
         expect(res.method, Wilt.DELETE_ATTACHMENT);
         try {
@@ -2257,7 +2257,7 @@ main() {
 
       int count = 0;
 
-      var completer = expectAsync0(() {
+      var completer = expectAsync(() {
 
         wilting.stopChangeNotification();
         expect(count, 11);
@@ -2298,7 +2298,7 @@ main() {
 
       int count = 0;
 
-      var completer = expectAsync0(() {
+      var completer = expectAsync(() {
 
         expect(count, 11);
 
@@ -2335,7 +2335,7 @@ main() {
 
       int count = 0;
 
-      var completer = expectAsync0(() {
+      var completer = expectAsync(() {
 
         expect(count, 3);
         wilting.pauseChangeNotifications();
@@ -2356,7 +2356,7 @@ main() {
 
       int resLength = -1;
 
-      var completer = expectAsync0(() {
+      var completer = expectAsync(() {
 
         expect(wilting.changeNotificationsPaused, true);
 
@@ -2370,7 +2370,7 @@ main() {
 
       int count = 0;
 
-      var completer = expectAsync0(() {
+      var completer = expectAsync(() {
 
         expect(wilting.changeNotificationsPaused, false);
         expect(count, 3);

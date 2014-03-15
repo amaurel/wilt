@@ -1,3 +1,4 @@
 packages
 pubspec.lock
 *.directory
+/test/wilt_test_private_config.dart
